@@ -1,0 +1,125 @@
+\usepackage[showframe=false,paper=a4paper,top=1in,bottom=1in,right=2cm,left=3cm]{geometry}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}
+\usepackage{epsf,graphicx}
+\usepackage{subfigure}
+\usepackage{latexsym,amssymb}
+\usepackage{setspace,cite}
+\usepackage{indentfirst}
+\usepackage{mathtools}
+\usepackage[justification=centering]{caption}
+\usepackage{multirow}
+\usepackage[figuresright]{rotating}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+
+\let\origdoublepage\cleardoublepage
+\newcommand{\clearemptydoublepage}{%
+  \clearpage
+  {\pagestyle{empty}\origdoublepage}%
+}
+\let\cleardoublepage\clearemptydoublepage
+\def\IntroName{Wstęp}
+\newcommand{\introduction}{%\doublepage
+   \chapter*{\IntroName}%
+\addcontentsline{toc}{chapter}{\IntroName}}
+\def\SourceName{Źródło}
+\def\source#1{\centerline{\par\small\SourceName:~#1}}
+
+%\usepackage{draft} %draft option - doesn't put full figures in -
+            % useful when editing
+
+%does the headers on the pages - keep in
+\usepackage{fancyhdr}
+
+%Puts page numbering of preamble in roman and of main body of thesis in
+%arabic. Also defines how chapters and sections are made
+\pagenumbering{arabic}
+\setcounter{page}{1} \pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername%
+\ \thechapter:\,\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\,\ #1}}
+\newcommand{\mainContent}{%
+  \doublespacing\newpage
+  \thispagestyle{empty}
+  \mbox{}\pagenumbering{Roman}
+  \setcounter{page}{0}
+  \pagestyle{plain}
+  \tableofcontents
+  \listoffigures
+  \listoftables
+  \pagestyle{fancy}
+  \newpage
+  \pagenumbering{arabic}
+  \fancyhead[LE,RO]{\slshape \rightmark}
+  \fancyhead[LO,RE]{\slshape \leftmark}
+  \fancyfoot[C]{\thepage}
+  % Wielkości odstępów
+  \setlength{\parskip}{1ex} % pomiędzy akapitami
+  \singlespacing % pomiedzy wierszami tekstu
+  %\onehalfspacing % pomiedzy wierszami tekstu
+}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\newcommand{\code}[1]{\colorbox{backcolour}{\texttt{#1}}{\normalsize}}
+\newcommand{\codenumber}[1]{{\texttt{#1}}{\normalsize}}
+\newcommand{\outcode}[1]{{\texttt{#1}}{\scriptsize}}
+\lstdefinestyle{PythonStyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=3pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    % \ifnum\value{tabsize}=1.2
+}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, const, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, let, new, null, return, switch, this, throw, true, try, then, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={status, filter, send, find, findByIdAndUpdate},
+  % ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{magenta},
+  ndkeywordstyle=\color{codegreen}\bfseries,
+  % ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{codegreen},
+  stringstyle=\color{codepurple},
+  sensitive=true
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{backcolour},
+   extendedchars=true,
+   basicstyle=\ttfamily\scriptsize,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\color{codegray},
+   numbersep=3pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+% \lstset{style=mystyle}

@@ -1,0 +1,38 @@
+\documentclass[twoside,a4paper,12pt]{report} %,draft,openright
+\usepackage{common/format}
+
+\begin{document}
+
+\input{dane} % PLIK DO EDYCJI: dane autora, tytuł pracy, opiekun, wykonawcy
+\input{common/strona-tytulowa} % plik nie powinien wymagać edycji
+
+\begin{abstract}
+\input{rozdzialy/streszczenie.tex}
+\end{abstract}
+
+\mainContent
+
+% \tableofcontents
+% \newpage
+
+% Wielkości odstępów
+\setlength{\parskip}{1ex} % pomiędzy akapitami
+\singlespacing % pomiedzy wierszami tekstu
+%\onehalfspacing % pomiedzy wierszami tekstu
+
+% Odwołania do plików z rozdziałami
+\input{rozdzialy/00_wstep.tex}
+\input{rozdzialy/01_wprowadzenie.tex}
+\input{rozdzialy/02_teoria.tex}
+\input{rozdzialy/03_badania.tex}
+\input{rozdzialy/04_opracowanie.tex}
+\input{rozdzialy/05_podsumowanie.tex}
+
+% Bibliografia
+\bibliographystyle{plain} % styl bibliografii
+\bibliography{bibliografia} % nazwa pliku z pozycjami bibliograficznymi
+% Dodajemy bibliografię do spisu treści
+\addcontentsline{toc}{chapter}{\protect\numberline{Bibliografia\hspace{-96pt}}}
+
+
+\end{document}
